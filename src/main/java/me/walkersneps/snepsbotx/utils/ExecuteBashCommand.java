@@ -1,6 +1,7 @@
 package me.walkersneps.snepsbotx.utils;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,23 +12,25 @@ public class ExecuteBashCommand {
 
         List <String> outputLines = new ArrayList<>();
 
-        Process p;
+        String result = null;
         try {
-            //p = Runtime.getRuntime().exec(command);
-            p = Runtime.getRuntime().exec(new String[]{"bash", "-c", command});
+            Runtime r = Runtime.getRuntime();
 
-            p.waitFor();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-            System.out.println("Created BufferedReader");
+            Process p = r.exec(command);
 
-            String line;
-
-            while ((line = reader.readLine()) != null) {
-                outputLines.add(line);
-                System.out.println("Added a string to List outputLines");
+            BufferedReader in =
+                    new BufferedReader(new InputStreamReader(p.getInputStream()));
+            String inputLine;
+            while ((inputLine = in.readLine()) != null) {
+                System.out.println(inputLine);
+                result += inputLine;
+                outputLines.add(inputLine);
+                System.out.println("Added a line to the List");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            in.close();
+
+        } catch (IOException e) {
+            System.out.println(e);
         }
 
         return outputLines;

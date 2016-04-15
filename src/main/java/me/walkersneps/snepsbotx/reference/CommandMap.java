@@ -16,7 +16,7 @@ public class CommandMap {
         c.put("stalklist", "Syntax: stalklist (returns the list of people being stalked)");
         c.put("test", "Syntax: test (just answers in a silly way).");
         c.put("info", "Syntax: info (get some information about me!).");
-        c.put("prefix", "Syntax: prefix (displays current prefix, call it without the prefix itself!).");
+        c.put("prefix", "Syntax: prefix (displays current prefix, you can also cast it without the prefix itself!).");
         c.put("newprefix", "Syntax: newprefix <prefix> (changes the commands prefix).");
         c.put("master", "Syntax: master (displays who my owner is! :)).");
         c.put("help", "Syntax: help [command] (gives help on a specified command; if casted without any argument, it sends an helpful message).");

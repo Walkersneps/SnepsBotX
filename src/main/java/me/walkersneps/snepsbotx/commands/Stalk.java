@@ -16,6 +16,11 @@ public class Stalk extends ListenerAdapter {
 
         String message = e.getMessage();
 
+        //stalk list
+        if (message.equalsIgnoreCase(prefix + "stalklist")) {
+            e.respondWith("I'm currently stalking " + stalkingPeople);
+        }
+
         //stalk functions
         if (message.startsWith(prefix + "stalk")) {
             String stalkMode = message.split(" ")[1];
@@ -36,10 +41,6 @@ public class Stalk extends ListenerAdapter {
             }
         }
 
-        //stalk list
-        if (message.equalsIgnoreCase(prefix + "stalklist")) {
-            e.respondWith("I'm currently stalking " + stalkingPeople.toString());
-        }
     }
 
 }//end of class

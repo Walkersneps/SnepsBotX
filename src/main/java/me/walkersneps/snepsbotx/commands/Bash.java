@@ -49,19 +49,20 @@ public class Bash extends ListenerAdapter {
                 //String dump = null;
                 String executing = message.substring((prefix + "figlet ").length());
                 if (executing.length() >= 20) {
-                    e.respond("Abort: Message too big.");
-                    return;
+                    e.respond("Abort: you're message was " + executing.length() + " characters long, but max allowed lenght is 19; please shrink down you're message :-) !");
+                } else if (executing.length() < 20) {
+                    String cmd = "figlet " + executing;
+                    List<String> outputLines = bash.executeCommand(cmd);
+                    for (String nowSending : outputLines) {
+                        e.respondWith(nowSending);
+                    }
+                    doFigletCooldown();
                 }
 
-                String cmd = "figlet " + executing;
-                List<String> outputLines = bash.executeCommand(cmd);
-                for (String nowSending : outputLines) {
-                    e.respondWith(nowSending);
-                }
-                doFigletCooldown();
             } else {
-                e.respond("This command was recently performed! Please wait!");
+                    e.respond("This command was recently performed! Please wait!");
             }
+
         }
 
     }

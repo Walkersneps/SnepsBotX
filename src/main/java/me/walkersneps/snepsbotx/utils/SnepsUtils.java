@@ -82,27 +82,32 @@ public class SnepsUtils {
         return Integer.toString(i);
     }
 
-    private int randomNumber(int max, int min) {
+    private int randomNumber(int exclusiveMax) {
         Random rand = new Random();
-        return rand.nextInt((max - min) + 1) + min;
+        return rand.nextInt(exclusiveMax);
     }
 
     public String stalkExtraction() {
 
-        String stalkSentence = "La mamma di Ermenegildo ciuccia caaaazzi";
+        String stalkSentence;
 
-        int randomizedNumber = randomNumber(1, 5);
-        if (randomizedNumber == 1) {
-            stalkSentence = "Bla Bla Bla";
-        } else if (randomizedNumber == 2) {
-            stalkSentence = "Happy Christmas!";
-        } else if (randomizedNumber == 3) {
-            stalkSentence = "Fag, fAg, faG, FAg, FaG, fAG, FAAAAAAAAG";
-        } else if (randomizedNumber == 4) {
-            stalkSentence = "Yeah, you're right: SuperWalkers is fucking cool!";
-        } else if (randomizedNumber == 5) {
-            stalkSentence = "On the chair the goat sings, under the chair the goat cries";
+        int randomizedNumber = randomNumber(5);
+
+        switch (randomizedNumber) {
+            case 0: stalkSentence = "Bla Bla Bla";
+                break;
+            case 1: stalkSentence = "Happy Christmas!";
+                break;
+            case 2: stalkSentence = "Fag, fAg, faG, FAg, FaG, fAG, FAAAAAAAAG";
+                break;
+            case 3: stalkSentence = "Yeah, you're right: SuperWalkers is fucking cool!";
+                break;
+            case 4: stalkSentence = "On the chair the goat sings, under the chair the goat dies";
+                break;
+            default: stalkSentence = "BRRRRRR extraction errorrrrr!";
+                break;
         }
+
 
         return stalkSentence;
     }
