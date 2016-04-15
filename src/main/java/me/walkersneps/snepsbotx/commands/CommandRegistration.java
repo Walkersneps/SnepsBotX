@@ -4,8 +4,7 @@ import me.walkersneps.snepsbotx.utils.SnepsUtils;
 import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.events.PrivateMessageEvent;
 
-import static me.walkersneps.snepsbotx.Mechs.ConfigReader.consoleChannel;
-import static me.walkersneps.snepsbotx.Mechs.ConfigReader.masterUser;
+import static me.walkersneps.snepsbotx.ConfigReader.masterUser;
 import static me.walkersneps.snepsbotx.SnepsBotX.COMMANDS_FILE;
 
 public class CommandRegistration extends ListenerAdapter {

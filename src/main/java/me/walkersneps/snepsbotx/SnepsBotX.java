@@ -1,6 +1,5 @@
 package me.walkersneps.snepsbotx;
 
-import me.walkersneps.snepsbotx.Mechs.ConfigReader;
 import me.walkersneps.snepsbotx.commands.*;
 import me.walkersneps.snepsbotx.utils.SnepsUtils;
 import me.walkersneps.snepsbotx.workingCycles.StalkCycle;

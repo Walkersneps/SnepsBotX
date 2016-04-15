@@ -4,7 +4,7 @@ import me.walkersneps.snepsbotx.utils.SnepsUtils;
 import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.types.GenericMessageEvent;
 
-import static me.walkersneps.snepsbotx.Mechs.ConfigReader.canStalk;
+import static me.walkersneps.snepsbotx.ConfigReader.canStalk;
 import static me.walkersneps.snepsbotx.commands.Stalk.stalkingPeople;
 
 

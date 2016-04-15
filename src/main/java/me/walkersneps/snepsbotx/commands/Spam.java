@@ -4,8 +4,8 @@ package me.walkersneps.snepsbotx.commands;
 import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.types.GenericMessageEvent;
 
-import static me.walkersneps.snepsbotx.Mechs.ConfigReader.canSpam;
-import static me.walkersneps.snepsbotx.Mechs.ConfigReader.prefix;
+import static me.walkersneps.snepsbotx.ConfigReader.canSpam;
+import static me.walkersneps.snepsbotx.ConfigReader.prefix;
 
 public class Spam extends ListenerAdapter {
 

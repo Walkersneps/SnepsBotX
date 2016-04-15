@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static me.walkersneps.snepsbotx.Mechs.ConfigReader.prefix;
+import static me.walkersneps.snepsbotx.ConfigReader.prefix;
 
 public class Bash extends ListenerAdapter {
 

@@ -1,4 +1,4 @@
-package me.walkersneps.snepsbotx.Mechs;
+package me.walkersneps.snepsbotx;
 
 import me.walkersneps.snepsbotx.reference.CommandMap;
 import me.walkersneps.snepsbotx.utils.SnepsUtils;

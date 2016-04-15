@@ -5,7 +5,7 @@ import org.pircbotx.hooks.types.GenericMessageEvent;
 
 import java.util.ArrayList;
 
-import static me.walkersneps.snepsbotx.Mechs.ConfigReader.prefix;
+import static me.walkersneps.snepsbotx.ConfigReader.prefix;
 
 public class Stalk extends ListenerAdapter {
 
