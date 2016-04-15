@@ -1,5 +1,10 @@
 package me.walkersneps.snepsbotx;
 
+import me.walkersneps.snepsbotx.IRCEventsReactions.OnInvite;
+import me.walkersneps.snepsbotx.IRCEventsReactions.OnKick;
+import me.walkersneps.snepsbotx.IRCEventsReactions.OnSetSecret;
+import me.walkersneps.snepsbotx.IRCEventsReactions.OnUnknown;
+import me.walkersneps.snepsbotx.chatter.BasicChats;
 import me.walkersneps.snepsbotx.commands.*;
 import me.walkersneps.snepsbotx.utils.SnepsUtils;
 import me.walkersneps.snepsbotx.workingCycles.StalkCycle;
@@ -16,18 +21,11 @@ public class SnepsBotX {
 
 
 
-    // #-#-#-# PROGRAM STARTS HERE #-#-#-#
-
-    public static void main (String[] args) {
-
-        ConfigReader.initialize(); //read the variables set in the config file
-
-        new SnepsBotX(); //Let's go!
-
-    }
 
 
-    private SnepsBotX() {
+
+
+    SnepsBotX() {
 
         SnepsUtils property = new SnepsUtils(); //create a SnepsUtils instance, I'll need it to get the configurations from the CONFIG_FILE
 
@@ -36,16 +34,24 @@ public class SnepsBotX {
                 .setName(property.readProperty(CONFIG_FILE, "botName")) //Set nick
                 .setLogin(property.readProperty(CONFIG_FILE, "botName"))
                 .addServer(property.readProperty(CONFIG_FILE, "serverHostname"), property.stringToInt(property.readProperty(CONFIG_FILE, "serverPort"))) //set server hostname and port
-                .setNickservPassword(property.readProperty(CONFIG_FILE, "nickServPassword")) //NickServ password
+                .setNickservPassword(property.readProperty(CONFIG_FILE, "NickServPassword")) //NickServ password
                 .addAutoJoinChannel(property.readProperty(CONFIG_FILE, "defaultChannel")) //set autoJoin channel(s)
                 .setMessageDelay(property.stringToInt(property.readProperty(CONFIG_FILE, "messageDelay")))
                 .addListener(new BotInfos()) //ALL MY LOVELY LISTENERS
                 .addListener(new Prefix())
                 .addListener(new Bash())
+                .addListener(new SendMessage())
                 .addListener(new TestCommands())
+                .addListener(new IRCCommands())
+                .addListener(new IRCMovements())
                 .addListener(new Spam())
                 .addListener(new Stalk())
                 .addListener(new CommandRegistration())
+                .addListener(new OnInvite())
+                .addListener(new OnKick())
+                .addListener(new OnSetSecret())
+                .addListener(new OnUnknown())
+                .addListener(new BasicChats())
                 .addListener(new StalkCycle())
                 .buildConfiguration(); //build it!
 

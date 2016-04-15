@@ -9,14 +9,17 @@ public class ConfigReader {
     public static String masterUser;
     public static String consoleChannel;
     public static String botVersion;
+    public static String botName;
+    public static String password;
     public static char prefix;
     public static boolean canSpam = false;
     public static boolean canStalk = false;
+    public static boolean canChat = false;
 
     private static SnepsUtils u = new SnepsUtils();
 
 
-    public static void initialize () {
+    static void initialize () {
 
         u.print("Starting initialization routine!");
 
@@ -50,15 +53,23 @@ public class ConfigReader {
         botVersion = u.readProperty(CONFIG_FILE, "botVersion");
         u.print("Read bot version is: " + botVersion + ".");
 
+        botName = u.readProperty(CONFIG_FILE, "botName");
+        u.print("Read bot name is: " + botName + ".");
+
         consoleChannel = u.readProperty(CONFIG_FILE, "consoleChannel");
         u.print("Read console channel is: #" + consoleChannel + ".");
+
+        password = u.readProperty(CONFIG_FILE, "NickServPassword");
+        u.print("Read NickServ password (Psst: it's a secret!).");
 
         prefix = u.stringToChar(u.readProperty(CONFIG_FILE, "prefix"));
         u.print("Read prefix is: '" + prefix + "'.");
 
+
         canSpam = Boolean.parseBoolean(u.readProperty(CONFIG_FILE, "canSpam"));
         canStalk = Boolean.parseBoolean(u.readProperty(CONFIG_FILE, "canStalk"));
-        u.print("Read pam toggles are (SPAM/STALK/DUMB): " + canSpam + "/" + canStalk + "/" + " .");
+        canChat = Boolean.parseBoolean(u.readProperty(CONFIG_FILE, "canChat"));
+        u.print("Read toggles are (SPAM/STALK/DUMB): " + canSpam + "/" + canStalk + "/" + canChat + " .");
 
         u.print("Done extracting variables from config file at " + CONFIG_FILE + "!");
 

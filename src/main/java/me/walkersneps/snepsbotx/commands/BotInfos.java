@@ -40,7 +40,7 @@ public class BotInfos extends ListenerAdapter {
         //get command description
         if (message.startsWith(prefix + "help")) {
             String command = message.substring((prefix + "help ").length());
-            e.respond(command.toUpperCase() + "-->" + CommandMap.descriptionOf(command));
+            e.respond(command.toUpperCase() + " --> " + CommandMap.descriptionOf(command));
         }
 
         //commands list

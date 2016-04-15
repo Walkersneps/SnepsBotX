@@ -20,7 +20,7 @@ public class StalkCycle extends ListenerAdapter {
         //stalk cycle
         if (canStalk) {
             String senderup = sender.toUpperCase();
-            System.out.println("Uppercase sender nick is: " + senderup);
+            //System.out.println("Uppercase sender nick is: " + senderup);
             if (stalkingPeople.contains(senderup)) {
                 System.out.println("extracting stalkSentence...");
                 String stalkSentence = utils.stalkExtraction();

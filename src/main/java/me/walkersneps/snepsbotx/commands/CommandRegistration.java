@@ -7,6 +7,11 @@ import org.pircbotx.hooks.events.PrivateMessageEvent;
 import static me.walkersneps.snepsbotx.ConfigReader.masterUser;
 import static me.walkersneps.snepsbotx.SnepsBotX.COMMANDS_FILE;
 
+/**
+ * @deprecated
+ * Reading commands from a .properties file doesn't work nor is supported right now...
+ */
+@Deprecated
 public class CommandRegistration extends ListenerAdapter {
 
     private static SnepsUtils utils = new SnepsUtils();
