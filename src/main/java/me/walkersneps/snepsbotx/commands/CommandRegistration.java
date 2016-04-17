@@ -14,7 +14,7 @@ import static me.walkersneps.snepsbotx.SnepsBotX.COMMANDS_FILE;
 @Deprecated
 public class CommandRegistration extends ListenerAdapter {
 
-    private static SnepsUtils utils = new SnepsUtils();
+    private static final SnepsUtils utils = new SnepsUtils();
 
     private boolean listeningForCommandDescription = false;
     private boolean listeningForEncodingAnswer = false;

@@ -17,9 +17,10 @@ public class IRCCommands extends ListenerAdapter{
         //nick change
         if (message.startsWith(prefix + "nick")) {
             if (sender.equals(masterUser)) {
-                String newnick = message.split(" ")[1];
+                String newNick = message.split(" ")[1];
                 e.respondWith("As you wish, my master");
-                e.getBot().sendIRC().changeNick(newnick);
+                e.getBot().sendIRC().changeNick(newNick);
+                actualBotName = newNick;
             } else {
                 e.respond("You little bitch can't change me!");
             }
@@ -29,7 +30,8 @@ public class IRCCommands extends ListenerAdapter{
         if (message.startsWith(prefix + "resetnick")) {
             if (sender.equals(masterUser)) {
                 e.respondWith("I'm glad you want to let me be my true self :-)");
-                e.getBot().sendIRC().changeNick(botName);
+                e.getBot().sendIRC().changeNick(defaultBotName);
+                actualBotName = defaultBotName;
             } else {
                 e.respond("Nope");
             }

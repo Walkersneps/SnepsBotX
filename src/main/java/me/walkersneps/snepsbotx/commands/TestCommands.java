@@ -11,7 +11,7 @@ import static me.walkersneps.snepsbotx.SnepsBotX.CONFIG_FILE;
 
 public class TestCommands extends ListenerAdapter {
 
-    private SnepsUtils utils = new SnepsUtils();
+    private final SnepsUtils utils = new SnepsUtils();
 
     @Override
     public void onGenericMessage (GenericMessageEvent e) {

@@ -1,6 +1,5 @@
 package me.walkersneps.snepsbotx.commands;
 
-import org.pircbotx.Channel;
 import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.events.MessageEvent;
 
@@ -19,10 +18,11 @@ public class IRCMovements extends ListenerAdapter {
 
         //join specified private channel
         if (message.startsWith(prefix + "joink")) {
-            String cTojoin = message.split(" ")[1];
+            String cToJoin = message.split(" ")[1];
             String key = message.split(" ")[2];
-            e.respond("I'll now join channel " + cTojoin + " with key '" + key + "'.");
-            e.getBot().sendIRC().joinChannel(cTojoin, key);
+            e.respond("I'll now join channel " + cToJoin + " with key '" + key + "'.");
+            e.getBot().sendIRC().joinChannel(cToJoin, key);
+            e.getBot().send().message(cToJoin, "Hello everyone!");
         }
 
 
@@ -31,16 +31,27 @@ public class IRCMovements extends ListenerAdapter {
             String cToJoin = message.split(" ") [1];
             e.respond("I'm joining channel " + cToJoin + " now.");
             e.getBot().sendIRC().joinChannel(cToJoin);
+            e.getBot().send().message(cToJoin, "Hello everyone!");
         }
 
 
         //part current channel
-        if (message.startsWith(prefix + "leave")) {
+        if (message.equalsIgnoreCase(prefix + "leave")) {
             if (sender.equals(masterUser)) {
+                e.respondWith("Goodbye everyone!");
                 e.getChannel().send().part();
             } else {
                 e.respond("No sir");
             }
+        }
+
+
+        //part specified channel
+        if (message.startsWith(prefix + "part ")) {
+            String channelToLeave = message.split(" ") [1];
+            e.getBot().send().message(channelToLeave, "Goodbye everyone!");
+            e.getBot().sendRaw().rawLine("PART " + channelToLeave);
+            e.respond("I've just left channel #" + channelToLeave);
         }
 
 

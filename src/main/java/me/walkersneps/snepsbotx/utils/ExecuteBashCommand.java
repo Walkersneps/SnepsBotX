@@ -8,12 +8,12 @@ import java.util.List;
 
 public class ExecuteBashCommand {
 
-    public List<String> executeCommand(String command) {
+    public List<String> executeCommand(String command) throws IOException{
 
         List <String> outputLines = new ArrayList<>();
 
         String result = null;
-        try {
+
             Runtime r = Runtime.getRuntime();
 
             Process p = r.exec(command);
@@ -28,10 +28,6 @@ public class ExecuteBashCommand {
                 System.out.println("Added a line to the List");
             }
             in.close();
-
-        } catch (IOException e) {
-            System.out.println(e);
-        }
 
         return outputLines;
 

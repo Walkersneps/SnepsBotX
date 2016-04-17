@@ -5,6 +5,7 @@ import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.types.GenericMessageEvent;
 
 import static me.walkersneps.snepsbotx.ConfigReader.canSpam;
+import static me.walkersneps.snepsbotx.ConfigReader.masterUser;
 import static me.walkersneps.snepsbotx.ConfigReader.prefix;
 
 public class Spam extends ListenerAdapter {
@@ -13,6 +14,21 @@ public class Spam extends ListenerAdapter {
     public void onGenericMessage (GenericMessageEvent e) {
 
         String message = e.getMessage();
+
+
+        //canSpam toggle
+        if (message.startsWith(prefix + "spams ")) {
+            String mode = message.split(" ") [1];
+            if (mode.equalsIgnoreCase("on")) {
+                canSpam = true;
+                e.respondWith("Spam functions are now enabled, wuhuuu!");
+            } else if (mode.equalsIgnoreCase("off")) {
+                canSpam = false;
+                e.respondWith("Spam functions are now disabled, die you little spammer motherfucker!");
+            } else {
+                e.respond("Wrong arguments. Please use 'on' or 'off'.");
+            }
+        }
 
         //channel spam
         if (message.startsWith(prefix + "spamhere")) {
@@ -29,30 +45,32 @@ public class Spam extends ListenerAdapter {
             }
         }
 
-        /*
+
         //personal spam
         if (message.startsWith(prefix + "spam")) {
-                if (canSpam) {
-                    String timesToSpam = message.split(" ")[1];
-                    String userToSpam = message.split(" ")[2];
-                    String textToSpam = message.substring((prefix + "spam " + timesToSpam + " " + userToSpam + " ").length());
-                    if (userToSpam.equalsIgnoreCase(masterUser)) {
-                        e.respond("Dude, do you really think I would've let you do that?! You can't kill " + masterUser + " with its own gun!");
-                    } else {
-                        e.respond("I'll now spam " + userToSpam + " for " + timesToSpam + " times, saying " + textToSpam);
-                        int Amount;
-                        Amount = Integer.parseInt(timesToSpam);
-                        do {
-                            e.getBot().sendM(textToSpam);
-                            Amount--;
-                        } while (Amount != 1);
-                        e.respond("Spam Operation Successfully Terminated");
+            if (canSpam) {
+                String timesToSpam = message.split(" ")[1];
+                String userToSpam = message.split(" ")[2];
+                String textToSpam = message.substring((prefix + "spam " + timesToSpam + " " + userToSpam + " ").length());
+                if (userToSpam.equalsIgnoreCase(masterUser)) {
+                    e.respond("Dude, do you really think I would've let you do that?! You can't kill " + masterUser + " with its own gun!");
+                } else {
+                    e.respond("I'll now spam " + userToSpam + " for " + timesToSpam + " times, saying " + textToSpam);
+                    int amount = Integer.parseInt(timesToSpam);
+
+                    for (int a=0; a<amount; a++) {
+                        e.getBot().send().message(userToSpam, textToSpam);
                     }
-                }else{
-                    e.respond("Spam functions are disabled, ask SuperWalkers to enable them");
+
+                    e.respond("Spam operation successfully executed ;-)");
+
                 }
+
+            }else{
+                e.respond("Spam functions are disabled, ask SuperWalkers to enable them");
+            }
         }
-        */
+
 
     }
 

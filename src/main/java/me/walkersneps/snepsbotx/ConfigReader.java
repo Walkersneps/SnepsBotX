@@ -7,16 +7,17 @@ import static me.walkersneps.snepsbotx.SnepsBotX.CONFIG_FILE;
 public class ConfigReader {
 
     public static String masterUser;
-    public static String consoleChannel;
     public static String botVersion;
-    public static String botName;
+    private static String consoleChannel;
+    public static String defaultBotName;
+    public static String actualBotName;
     public static String password;
     public static char prefix;
     public static boolean canSpam = false;
     public static boolean canStalk = false;
     public static boolean canChat = false;
 
-    private static SnepsUtils u = new SnepsUtils();
+    private static final SnepsUtils u = new SnepsUtils();
 
 
     static void initialize () {
@@ -53,8 +54,9 @@ public class ConfigReader {
         botVersion = u.readProperty(CONFIG_FILE, "botVersion");
         u.print("Read bot version is: " + botVersion + ".");
 
-        botName = u.readProperty(CONFIG_FILE, "botName");
-        u.print("Read bot name is: " + botName + ".");
+        defaultBotName = u.readProperty(CONFIG_FILE, "botName");
+        actualBotName = defaultBotName;
+        u.print("Read bot name is: " + defaultBotName + ".");
 
         consoleChannel = u.readProperty(CONFIG_FILE, "consoleChannel");
         u.print("Read console channel is: #" + consoleChannel + ".");

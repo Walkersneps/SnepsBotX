@@ -6,7 +6,7 @@ import org.pircbotx.hooks.events.InviteEvent;
 
 public class OnInvite extends ListenerAdapter {
 
-    SnepsUtils u = new SnepsUtils();
+    private final SnepsUtils u = new SnepsUtils();
 
     @Override
     public void onInvite(InviteEvent e) {

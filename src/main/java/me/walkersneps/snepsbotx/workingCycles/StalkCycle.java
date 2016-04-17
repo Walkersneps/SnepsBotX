@@ -10,7 +10,7 @@ import static me.walkersneps.snepsbotx.commands.Stalk.stalkingPeople;
 
 public class StalkCycle extends ListenerAdapter {
 
-    private SnepsUtils utils = new SnepsUtils();
+    private final SnepsUtils utils = new SnepsUtils();
 
     @Override
     public void onGenericMessage (GenericMessageEvent e) {

@@ -5,6 +5,7 @@ import me.walkersneps.snepsbotx.utils.ExecuteBashCommand;
 import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.types.GenericMessageEvent;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -13,7 +14,7 @@ import static me.walkersneps.snepsbotx.ConfigReader.prefix;
 
 public class Bash extends ListenerAdapter {
 
-    private ExecuteBashCommand bash = new ExecuteBashCommand();
+    private final ExecuteBashCommand bash = new ExecuteBashCommand();
 
     private boolean figletMuted = false;
 
@@ -30,7 +31,7 @@ public class Bash extends ListenerAdapter {
     }
 
     @Override
-    public void onGenericMessage (GenericMessageEvent e) {
+    public void onGenericMessage (GenericMessageEvent e) throws IOException {
 
         String message = e.getMessage();
 
@@ -49,7 +50,7 @@ public class Bash extends ListenerAdapter {
                 //String dump = null;
                 String executing = message.substring((prefix + "figlet ").length());
                 if (executing.length() >= 20) {
-                    e.respond("Abort: you're message was " + executing.length() + " characters long, but max allowed lenght is 19; please shrink down you're message :-) !");
+                    e.respond("Abort: you're message was " + executing.length() + " characters long, but max allowed length is 19; please shrink down you're message :-) !");
                 } else if (executing.length() < 20) {
                     String cmd = "figlet " + executing;
                     List<String> outputLines = bash.executeCommand(cmd);

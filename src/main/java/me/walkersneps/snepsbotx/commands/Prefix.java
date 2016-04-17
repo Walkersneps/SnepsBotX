@@ -9,7 +9,7 @@ import static me.walkersneps.snepsbotx.ConfigReader.prefix;
 
 public class Prefix extends ListenerAdapter{
 
-    private SnepsUtils utils = new SnepsUtils();
+    private final SnepsUtils utils = new SnepsUtils();
 
     @Override
     public void onGenericMessage (GenericMessageEvent e) {

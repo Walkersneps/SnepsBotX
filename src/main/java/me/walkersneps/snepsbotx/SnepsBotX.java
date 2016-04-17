@@ -4,7 +4,8 @@ import me.walkersneps.snepsbotx.IRCEventsReactions.OnInvite;
 import me.walkersneps.snepsbotx.IRCEventsReactions.OnKick;
 import me.walkersneps.snepsbotx.IRCEventsReactions.OnSetSecret;
 import me.walkersneps.snepsbotx.IRCEventsReactions.OnUnknown;
-import me.walkersneps.snepsbotx.chatter.BasicChats;
+import me.walkersneps.snepsbotx.chatter.BasicChatsENG;
+import me.walkersneps.snepsbotx.chatter.ChatToggle;
 import me.walkersneps.snepsbotx.commands.*;
 import me.walkersneps.snepsbotx.utils.SnepsUtils;
 import me.walkersneps.snepsbotx.workingCycles.StalkCycle;
@@ -46,12 +47,13 @@ public class SnepsBotX {
                 .addListener(new IRCMovements())
                 .addListener(new Spam())
                 .addListener(new Stalk())
+                .addListener(new ChatToggle())
                 .addListener(new CommandRegistration())
                 .addListener(new OnInvite())
                 .addListener(new OnKick())
                 .addListener(new OnSetSecret())
                 .addListener(new OnUnknown())
-                .addListener(new BasicChats())
+                .addListener(new BasicChatsENG())
                 .addListener(new StalkCycle())
                 .buildConfiguration(); //build it!
 

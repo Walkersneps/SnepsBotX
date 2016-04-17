@@ -11,7 +11,7 @@ import static me.walkersneps.snepsbotx.ConfigReader.prefix;
 
 public class BotInfos extends ListenerAdapter {
 
-    private SnepsUtils utils = new SnepsUtils();
+    private final SnepsUtils utils = new SnepsUtils();
 
     @Override
     public void onGenericMessage (GenericMessageEvent e) {
@@ -43,9 +43,16 @@ public class BotInfos extends ListenerAdapter {
             e.respond(command.toUpperCase() + " --> " + CommandMap.descriptionOf(command));
         }
 
-        //commands list
+        //command list
         if (message.equalsIgnoreCase(prefix + "commands")) {
             e.respondWith("The " + utils.intToString(CommandMap.howManyEntries()) + " commands I can execute are the following: " + CommandMap.getCommandList());
+        }
+
+
+        //tips
+        if (message.equalsIgnoreCase(prefix + "tips")) {
+            e.respondPrivateMessage("-Every commands with a channel as an argument requires you to prepend an # before the channel name.");
+
         }
 
 
