@@ -9,6 +9,7 @@ import me.walkersneps.snepsbotx.chatter.ChatToggle;
 import me.walkersneps.snepsbotx.commands.*;
 import me.walkersneps.snepsbotx.utils.SnepsUtils;
 import me.walkersneps.snepsbotx.workingCycles.StalkCycle;
+import org.pircbotx.Channel;
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
 import org.pircbotx.exception.IrcException;
@@ -23,7 +24,7 @@ public class SnepsBotX {
 
 
 
-
+    private static PircBotX bot;
 
 
     SnepsBotX() {
@@ -57,13 +58,26 @@ public class SnepsBotX {
                 .addListener(new StalkCycle())
                 .buildConfiguration(); //build it!
 
-        PircBotX bot = new PircBotX(myConfig); //give him the configs
+
+        bot = new PircBotX(myConfig); //give him the configs
 
         try {
             bot.startBot(); //start the bot
         } catch (IOException | IrcException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void sendMessage (String target, String message) {
+        bot.send().message(target, message);
+    }
+
+    public static void join (String channel) {
+        bot.sendIRC().joinChannel(channel);
+    }
+
+    public static void part (String channel) {
+        bot.sendRaw().rawLine("PART " + channel);
     }
 
 
