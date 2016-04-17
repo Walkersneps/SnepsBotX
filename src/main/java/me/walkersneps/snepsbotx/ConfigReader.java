@@ -8,7 +8,7 @@ public class ConfigReader {
 
     public static String masterUser;
     public static String botVersion;
-    private static String consoleChannel;
+    public static String consoleChannel;
     public static String defaultBotName;
     public static String actualBotName;
     public static String password;

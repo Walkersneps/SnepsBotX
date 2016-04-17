@@ -10,10 +10,11 @@ import java.awt.event.ActionListener;
 public class SendIRCMessageGUI extends JFrame{
 
     private JPanel rootPanel;
-    private JTextField reciepientTextField;
+    private JTextField recipientTextField;
     private JTextField messageTextField;
     private JButton sendBUTTON;
-    private JLabel messageLabel;
+    private JLabel messageLABEL;
+    private JLabel recipientLABEL;
 
     SendIRCMessageGUI() {
 
@@ -25,7 +26,7 @@ public class SendIRCMessageGUI extends JFrame{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                String target = reciepientTextField.getText();
+                String target = recipientTextField.getText();
                 String message = messageTextField.getText();
                 SnepsBotX.sendMessage(target, message);
             }
