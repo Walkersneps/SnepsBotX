@@ -1,6 +1,5 @@
 package me.walkersneps.snepsbotx;
 
-
 import me.walkersneps.snepsbotx.gui.MainGUI;
 
 import java.awt.*;
@@ -8,14 +7,17 @@ import java.awt.*;
 public class KickStarter {
 
     private static boolean dontUseGui = false;
+    private static boolean dontStartBot = false;
 
 
     public static void main (String[] args) {
 
         //arguments checker
         for (String arg : args) { //in the arguments given when calling the program...
-            if (arg.contains("nogui")) { //if I call 'nogui'
+            if (arg.equalsIgnoreCase("nogui")) { //if I call 'nogui'
                 dontUseGui = true;
+            } else if (arg.equalsIgnoreCase("nobot")) {
+                dontStartBot = true;
             }
         }
 
@@ -29,7 +31,9 @@ public class KickStarter {
 
         ConfigReader.initialize(); //read the variables set in the config file
 
-        new SnepsBotX(); //Let's go!
+        if (!dontStartBot) {
+            new SnepsBotX(); //Let's go!
+        } else { System.out.println("Not starting the bot!"); }
 
     }
 

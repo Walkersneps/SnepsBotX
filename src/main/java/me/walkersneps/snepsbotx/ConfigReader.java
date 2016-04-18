@@ -14,6 +14,7 @@ public class ConfigReader {
     public static String password;
     public static String fmKey;
     public static String fmUser;
+    //public static String waKey;
     public static char prefix;
     public static boolean canSpam = false;
     public static boolean canStalk = false;
@@ -24,6 +25,7 @@ public class ConfigReader {
 
     static void initialize () {
 
+        u.print("");
         u.print("Starting initialization routine!");
 
         loadConfigs();
@@ -31,6 +33,7 @@ public class ConfigReader {
         loadCommandsHashmap();
 
         u.print("Initialization routine completed!");
+        u.print("");
 
     }
 
@@ -39,7 +42,8 @@ public class ConfigReader {
 
         u.print("Loading command hashmap...");
         CommandMap.loadCommandsOnStartup(); //load the commands hashmap!
-        System.out.println("Loaded command hashmap!");
+        u.print("Loaded command hashmap!");
+        u.print("");
 
     }
 
@@ -73,6 +77,9 @@ public class ConfigReader {
         fmKey = u.readProperty(CONFIG_FILE, "lastfmKey");
         u.print("Read last.fm data are: user-> " + fmUser + "; key-> " + fmKey + ".");
 
+        //waKey = u.readProperty(CONFIG_FILE, "wolframKey");
+        //u.print("Read Wolfram Alpha AppID is: " + waKey);
+
 
         canSpam = Boolean.parseBoolean(u.readProperty(CONFIG_FILE, "canSpam"));
         canStalk = Boolean.parseBoolean(u.readProperty(CONFIG_FILE, "canStalk"));
@@ -80,6 +87,7 @@ public class ConfigReader {
         u.print("Read toggles are (SPAM/STALK/DUMB): " + canSpam + "/" + canStalk + "/" + canChat + " .");
 
         u.print("Done extracting variables from config file at " + CONFIG_FILE + "!");
+        u.print("");
 
     }
 
