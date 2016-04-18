@@ -11,6 +11,7 @@ public class MainGUI extends JFrame{
     private JButton leaveChannelBUTTON;
     private JButton quitBUTTON;
     private JButton joinChannelBUTTON;
+    private JButton showChannelsBUTTON;
 
     public MainGUI () {
 
@@ -41,6 +42,16 @@ public class MainGUI extends JFrame{
                 new PartIRCChannelGUI();
             }
         });
+
+        showChannelsBUTTON.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("A magic channel list window should appear, but I can't code GUIs so ACAB.");
+                //new ChannelsGUI();
+            }
+        });
+
+
 
         //what to do when quitBUTTON is pressed
         quitBUTTON.addActionListener(new ActionListener() {

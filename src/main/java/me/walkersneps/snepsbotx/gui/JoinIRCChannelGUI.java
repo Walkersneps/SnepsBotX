@@ -30,7 +30,7 @@ public class JoinIRCChannelGUI extends JFrame{
 
         pack();
 
-        setDefaultCloseOperation(HIDE_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
         setLocationRelativeTo(null);
 

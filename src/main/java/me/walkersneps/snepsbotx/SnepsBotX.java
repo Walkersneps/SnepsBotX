@@ -1,9 +1,6 @@
 package me.walkersneps.snepsbotx;
 
-import me.walkersneps.snepsbotx.IRCEventsReactions.OnInvite;
-import me.walkersneps.snepsbotx.IRCEventsReactions.OnKick;
-import me.walkersneps.snepsbotx.IRCEventsReactions.OnSetSecret;
-import me.walkersneps.snepsbotx.IRCEventsReactions.OnUnknown;
+import me.walkersneps.snepsbotx.IRCEventsReactions.*;
 import me.walkersneps.snepsbotx.chatter.BasicChatsENG;
 import me.walkersneps.snepsbotx.chatter.ChatToggle;
 import me.walkersneps.snepsbotx.commands.*;
@@ -52,6 +49,8 @@ public class SnepsBotX {
                 .addListener(new CommandRegistration())
                 .addListener(new OnInvite())
                 .addListener(new OnKick())
+                .addListener(new OnJoin())
+                .addListener(new OnPart())
                 .addListener(new OnSetSecret())
                 .addListener(new OnUnknown())
                 .addListener(new BasicChatsENG())

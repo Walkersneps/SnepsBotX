@@ -35,7 +35,7 @@ public class SendIRCMessageGUI extends JFrame{
 
         pack();
 
-        setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
         setLocationRelativeTo(null);
 
