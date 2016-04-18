@@ -12,6 +12,8 @@ public class ConfigReader {
     public static String defaultBotName;
     public static String actualBotName;
     public static String password;
+    public static String fmKey;
+    public static String fmUser;
     public static char prefix;
     public static boolean canSpam = false;
     public static boolean canStalk = false;
@@ -66,6 +68,10 @@ public class ConfigReader {
 
         prefix = u.stringToChar(u.readProperty(CONFIG_FILE, "prefix"));
         u.print("Read prefix is: '" + prefix + "'.");
+
+        fmUser = u.readProperty(CONFIG_FILE, "lastfmUser");
+        fmKey = u.readProperty(CONFIG_FILE, "lastfmKey");
+        u.print("Read last.fm data are: user-> " + fmUser + "; key-> " + fmKey + ".");
 
 
         canSpam = Boolean.parseBoolean(u.readProperty(CONFIG_FILE, "canSpam"));

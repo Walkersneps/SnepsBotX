@@ -19,6 +19,10 @@ public class CommandMap {
         c.put("chat", "Syntax: chat {on/off} (enables or disables chat functions");
         c.put("send", "Syntax: send <user> <message> (sends to the specified user a given message).");
         c.put("test", "Syntax: test (just answers in a silly way).");
+        c.put("fm", "Syntax: fm (replies with the latest song scrobbled on last.fm by the bot's owner.");
+        c.put("lastfm", "Syntax lastfm <user> (replies with the latest song scrobbled by the specified user).");
+        c.put("fmsong", "Syntax fmsong <user> (replies with the specified user's favourite song).");
+        c.put("fmartist", "Syntax: fmartist <user> (replies with the specified user's favourite artist).");
         c.put("info", "Syntax: info (get some information about me!).");
         c.put("tips", "Syntax: tips (sends some useful tips)");
         c.put("prefix", "Syntax: prefix (displays current prefix, you can also cast it without the prefix itself!).");
@@ -40,8 +44,8 @@ public class CommandMap {
         c.put("writetest", "Syntax: writetest (writes a test property in the bot's configuration file, creating it if it's not present; only useful in debugging).");
         c.put("newcommand", "Syntax: newcommand <command> (deprecated way to add commands descriptions to a list like this).");
 
-
     }
+
 
     public static String descriptionOf (String key) {
         if (c.containsKey(key)) {

@@ -9,7 +9,6 @@ import me.walkersneps.snepsbotx.chatter.ChatToggle;
 import me.walkersneps.snepsbotx.commands.*;
 import me.walkersneps.snepsbotx.utils.SnepsUtils;
 import me.walkersneps.snepsbotx.workingCycles.StalkCycle;
-import org.pircbotx.Channel;
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
 import org.pircbotx.exception.IrcException;
@@ -49,6 +48,7 @@ public class SnepsBotX {
                 .addListener(new Spam())
                 .addListener(new Stalk())
                 .addListener(new ChatToggle())
+                .addListener(new LastfmCommands())
                 .addListener(new CommandRegistration())
                 .addListener(new OnInvite())
                 .addListener(new OnKick())
