@@ -1,4 +1,4 @@
-package me.walkersneps.snepsbotx.IRCEventsReactions;
+package me.walkersneps.snepsbotx.irc.events.reactions;
 
 import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.events.KickEvent;

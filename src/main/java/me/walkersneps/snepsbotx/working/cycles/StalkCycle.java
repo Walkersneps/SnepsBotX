@@ -1,4 +1,4 @@
-package me.walkersneps.snepsbotx.workingCycles;
+package me.walkersneps.snepsbotx.working.cycles;
 
 import me.walkersneps.snepsbotx.utils.SnepsUtils;
 import org.pircbotx.hooks.ListenerAdapter;

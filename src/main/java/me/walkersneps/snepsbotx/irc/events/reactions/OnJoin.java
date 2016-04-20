@@ -1,4 +1,4 @@
-package me.walkersneps.snepsbotx.IRCEventsReactions;
+package me.walkersneps.snepsbotx.irc.events.reactions;
 
 
 import me.walkersneps.snepsbotx.reference.Channels;
@@ -7,15 +7,14 @@ import org.pircbotx.hooks.events.JoinEvent;
 
 import static me.walkersneps.snepsbotx.ConfigReader.actualBotName;
 
-public class OnPart extends ListenerAdapter{
+public class OnJoin extends ListenerAdapter{
 
     @Override
     public void onJoin(JoinEvent e) throws Exception {
 
         if (e.getUser().getNick().equals(actualBotName)) {
 
-            Channels.addChannel(e.getChannel().getName());
-
+            Channels.removeChannel(e.getChannel().getName());
         }
 
 

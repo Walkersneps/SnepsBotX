@@ -1,12 +1,11 @@
 package me.walkersneps.snepsbotx;
 
-import me.walkersneps.snepsbotx.IRCEventsReactions.*;
 import me.walkersneps.snepsbotx.chatter.BasicChatsENG;
 import me.walkersneps.snepsbotx.chatter.ChatToggle;
 import me.walkersneps.snepsbotx.commands.*;
-import me.walkersneps.snepsbotx.fake.java.PJListener;
+import me.walkersneps.snepsbotx.irc.events.reactions.*;
 import me.walkersneps.snepsbotx.utils.SnepsUtils;
-import me.walkersneps.snepsbotx.workingCycles.StalkCycle;
+import me.walkersneps.snepsbotx.working.cycles.StalkCycle;
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
 import org.pircbotx.exception.IrcException;
@@ -36,7 +35,10 @@ public class SnepsBotX {
                 .setNickservPassword(property.readProperty(CONFIG_FILE, "NickServPassword")) //NickServ password
                 .addAutoJoinChannel(property.readProperty(CONFIG_FILE, "defaultChannel")) //set autoJoin channel(s)
                 .setMessageDelay(property.stringToInt(property.readProperty(CONFIG_FILE, "messageDelay")))
-                .addListener(new BotInfos()) //ALL MY LOVELY LISTENERS
+
+                //ALL MY LOVELY LISTENERS
+                // Commands listeners
+                .addListener(new BotInfos())
                 .addListener(new Prefix())
                 .addListener(new Bash())
                 .addListener(new SendMessage())
@@ -47,16 +49,24 @@ public class SnepsBotX {
                 .addListener(new Stalk())
                 .addListener(new ChatToggle())
                 .addListener(new LastfmCommands())
-                .addListener(new PJListener())
-                .addListener(new CommandRegistration())
+
+                // fake.java listeners
+                //.addListener(new PJListener())
+
+                // IRCEventsReactions listeners
                 .addListener(new OnInvite())
                 .addListener(new OnKick())
                 .addListener(new OnJoin())
                 .addListener(new OnPart())
                 .addListener(new OnSetSecret())
                 .addListener(new OnUnknown())
+
+                // chatter listeners
                 .addListener(new BasicChatsENG())
+
+                // working.cycles listeners
                 .addListener(new StalkCycle())
+
                 .buildConfiguration(); //build it!
 
 
