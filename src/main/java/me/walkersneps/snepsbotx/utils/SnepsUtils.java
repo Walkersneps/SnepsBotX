@@ -63,7 +63,7 @@ public class SnepsUtils {
 
     }
 
-    public int stringToInt (String str){
+    public static int stringToInt (String str){
         return Integer.parseInt(str); //return it
     }
 
@@ -78,11 +78,11 @@ public class SnepsUtils {
         return Character.toString(c);
     }
 
-    public String intToString (int i) {
+    public static String intToString (int i) {
         return Integer.toString(i);
     }
 
-    private int randomNumber(int exclusiveMax) {
+    public static int randomNumber(int exclusiveMax) {
         Random rand = new Random();
         return rand.nextInt(exclusiveMax);
     }
