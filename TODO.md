@@ -2,3 +2,4 @@
 
 + Twitter API
 + Multiple bots management
++ ~~Continuos Integration~~
