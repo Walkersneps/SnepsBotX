@@ -4,6 +4,7 @@ import me.walkersneps.snepsbotx.IRCEventsReactions.*;
 import me.walkersneps.snepsbotx.chatter.BasicChatsENG;
 import me.walkersneps.snepsbotx.chatter.ChatToggle;
 import me.walkersneps.snepsbotx.commands.*;
+import me.walkersneps.snepsbotx.fake.java.PJListener;
 import me.walkersneps.snepsbotx.utils.SnepsUtils;
 import me.walkersneps.snepsbotx.workingCycles.StalkCycle;
 import org.pircbotx.Configuration;
@@ -46,6 +47,7 @@ public class SnepsBotX {
                 .addListener(new Stalk())
                 .addListener(new ChatToggle())
                 .addListener(new LastfmCommands())
+                .addListener(new PJListener())
                 .addListener(new CommandRegistration())
                 .addListener(new OnInvite())
                 .addListener(new OnKick())
