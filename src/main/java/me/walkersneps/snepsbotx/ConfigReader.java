@@ -2,6 +2,7 @@ package me.walkersneps.snepsbotx;
 
 import me.walkersneps.snepsbotx.reference.CommandMap;
 import me.walkersneps.snepsbotx.utils.SnepsUtils;
+
 import static me.walkersneps.snepsbotx.SnepsBotX.CONFIG_FILE;
 
 public class ConfigReader {

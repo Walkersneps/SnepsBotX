@@ -9,14 +9,13 @@ import me.walkersneps.snepsbotx.working.cycles.StalkCycle;
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
 import org.pircbotx.exception.IrcException;
+
 import java.io.IOException;
 
 public class SnepsBotX {
 
     // #-#-#-# EDITABLE VARIABLES #-#-#-#
     public static final String CONFIG_FILE = "config.properties";
-    public static final String COMMANDS_FILE = "commands.properties";
-
 
 
 
@@ -31,10 +30,10 @@ public class SnepsBotX {
         Configuration myConfig = new Configuration.Builder()
                 .setName(property.readProperty(CONFIG_FILE, "botName")) //Set nick
                 .setLogin(property.readProperty(CONFIG_FILE, "botName"))
-                .addServer(property.readProperty(CONFIG_FILE, "serverHostname"), property.stringToInt(property.readProperty(CONFIG_FILE, "serverPort"))) //set server hostname and port
+                .addServer(property.readProperty(CONFIG_FILE, "serverHostname"), SnepsUtils.stringToInt(property.readProperty(CONFIG_FILE, "serverPort"))) //set server hostname and port
                 .setNickservPassword(property.readProperty(CONFIG_FILE, "NickServPassword")) //NickServ password
                 .addAutoJoinChannel(property.readProperty(CONFIG_FILE, "defaultChannel")) //set autoJoin channel(s)
-                .setMessageDelay(property.stringToInt(property.readProperty(CONFIG_FILE, "messageDelay")))
+                .setMessageDelay(SnepsUtils.stringToInt(property.readProperty(CONFIG_FILE, "messageDelay")))
 
                 //ALL MY LOVELY LISTENERS
                 // Commands listeners

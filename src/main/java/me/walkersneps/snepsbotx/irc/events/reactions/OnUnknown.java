@@ -5,7 +5,6 @@ import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.events.UnknownEvent;
 
 import static me.walkersneps.snepsbotx.ConfigReader.consoleChannel;
-import static me.walkersneps.snepsbotx.ConfigReader.masterUser;
 
 public class OnUnknown extends ListenerAdapter{
 

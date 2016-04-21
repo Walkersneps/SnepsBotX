@@ -5,9 +5,7 @@ import me.walkersneps.snepsbotx.utils.SnepsUtils;
 import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.types.GenericMessageEvent;
 
-import static me.walkersneps.snepsbotx.ConfigReader.botVersion;
-import static me.walkersneps.snepsbotx.ConfigReader.masterUser;
-import static me.walkersneps.snepsbotx.ConfigReader.prefix;
+import static me.walkersneps.snepsbotx.ConfigReader.*;
 
 public class BotInfos extends ListenerAdapter {
 
