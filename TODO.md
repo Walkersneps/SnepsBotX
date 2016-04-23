@@ -4,3 +4,4 @@
 + Multiple bots management
 + Shell script to write configuration file
 + ~~Continuos Integration~~
++ ~~.gitignore~~

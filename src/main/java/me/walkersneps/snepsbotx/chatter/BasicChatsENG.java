@@ -21,6 +21,10 @@ public class BasicChatsENG extends ListenerAdapter{
                 //if ()
             }
 
+            if (m.contains("cool")) {
+              e.respondWith("Great bro!");
+            }
+
 
         }
     }
