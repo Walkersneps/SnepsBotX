@@ -4,4 +4,18 @@ jdk:
   - oraclejdk8
   - oraclejdk7
 
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "UXo4D/rCDpO10Vk/iVwaLX3NuFSZKaDoguQ9a0306HYA26Qx5e4tdFWyj2N2RFghhwAh/3IsLw/Ji1LdkGtl/owhAmzjzvSFv3vze7BDV/7gCW+Tfn+9gtDva6lrkI2Uf30fumqf+Tb6ATjuphYdC7+/UY2Gq2ZgScpJB+ZgERAgaxZ670yq3bgYZwxCxHn2rWHMbSjYkik5PZNPWahKomLstzSa4ywiV0WaMgTHagUxxI/iln3uHettcjz0JWWemAIiDBSlrGQ/1JQL5GZOMmu9RyHKLTv37n+4Z6+pAwjs/G/0LozulIGLVNijBqkcNZw26MKTkfD0O2cj8ErNHF/rAJ/2GuJADysremhxOCODtmUW9PI9mlaNDv8lXhExDNlv6CNNLSqBwl4xzuuKdjiSDAK4mUFPUPnBzc5tgNBdm1ycAcIfCum2vdHTR3e3RTQMVJMJXrKQp9iEnLMoMxLepPRjxHmtmZ9j4JHc4y+ihxegowy/g9Ih5dyrkep+WqY8XJoaj0pYsx05wv6Jg/F6ZoqPz9Pzbzq7nqFzuR84pFKIi9GhHPyC+ES6UweywB4d2K9AAY7HGLwLk6Z5tqm7JdFuZyGS0nwAQtvsKucj88FrYwaRCqe9G17+Xrc/5BmEXgoj+VVmgVfN8/HMXsjq40+ut8+arcYfi1Iz/3s="
 
+addons:
+  coverity_scan:
+    project:
+      name: "Walkersneps/SnepsBotX"
+      description: "Build submitted via Travis CI"
+    notification_email: walkersneps@gmail.com
+    build_command_prepend: "mvn clean"
+    build_command: "mvn -DskipTests=true compile"
+    branch_pattern: master
