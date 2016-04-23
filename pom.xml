@@ -6,7 +6,7 @@
 
     <groupId>org.snepsbotx</groupId>
     <artifactId>snepsbotx</artifactId>
-    <version>0.1-ALPHA-SNAPSHOT</version>
+    <version>0.1-build_8</version>
     <build>
         <plugins>
             <plugin>
