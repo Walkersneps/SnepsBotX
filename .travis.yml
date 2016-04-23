@@ -5,9 +5,9 @@ jdk:
   - oraclejdk7
   
   notifications:
-  email:
-    recipients:
-      - walkersneps@gmail.com
+    email:
+      recipients:
+        - walkersneps@gmail.com
     on_success: change # default: change
     on_failure: change # default: always
 
