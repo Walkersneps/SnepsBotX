@@ -1,15 +1,13 @@
 package me.walkersneps.snepsbotx.commands;
 
 import me.walkersneps.snepsbotx.reference.CommandMap;
-import me.walkersneps.snepsbotx.utils.SnepsUtils;
 import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.types.GenericMessageEvent;
 
+import static me.walkersneps.sneps.utils.convert.PrimitiveConverter.intToString;
 import static me.walkersneps.snepsbotx.ConfigReader.*;
 
 public class BotInfos extends ListenerAdapter {
-
-    private final SnepsUtils utils = new SnepsUtils();
 
     @Override
     public void onGenericMessage (GenericMessageEvent e) {
@@ -43,7 +41,7 @@ public class BotInfos extends ListenerAdapter {
 
         //command list
         if (message.equalsIgnoreCase(prefix + "commands")) {
-            e.respondWith("The " + utils.intToString(CommandMap.howManyEntries()) + " commands I can execute are the following: " + CommandMap.getCommandList());
+            e.respondWith("The " + intToString(CommandMap.howManyEntries()) + " commands I can execute are the following: " + CommandMap.getCommandList());
         }
 
 

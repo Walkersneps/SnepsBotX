@@ -1,16 +1,18 @@
 package me.walkersneps.snepsbotx;
 
+import me.walkersneps.sneps.utils.property.PropertyReader;
 import me.walkersneps.snepsbotx.chatter.BasicChatsENG;
 import me.walkersneps.snepsbotx.chatter.ChatToggle;
 import me.walkersneps.snepsbotx.commands.*;
 import me.walkersneps.snepsbotx.irc.events.reactions.*;
-import me.walkersneps.snepsbotx.utils.SnepsUtils;
 import me.walkersneps.snepsbotx.working.cycles.StalkCycle;
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
 import org.pircbotx.exception.IrcException;
 
 import java.io.IOException;
+
+import static me.walkersneps.sneps.utils.convert.PrimitiveConverter.stringToInt;
 
 public class SnepsBotX {
 
@@ -24,16 +26,16 @@ public class SnepsBotX {
 
     SnepsBotX() {
 
-        SnepsUtils property = new SnepsUtils(); //create a SnepsUtils instance, I'll need it to get the configurations from the CONFIG_FILE
+        PropertyReader property = new PropertyReader(CONFIG_FILE); //create a SnepsUtils instance, I'll need it to get the configurations from the CONFIG_FILE
 
         //my configuration builder
         Configuration myConfig = new Configuration.Builder()
-                .setName(property.readProperty(CONFIG_FILE, "botName")) //Set nick
-                .setLogin(property.readProperty(CONFIG_FILE, "botName"))
-                .addServer(property.readProperty(CONFIG_FILE, "serverHostname"), SnepsUtils.stringToInt(property.readProperty(CONFIG_FILE, "serverPort"))) //set server hostname and port
-                .setNickservPassword(property.readProperty(CONFIG_FILE, "NickServPassword")) //NickServ password
-                .addAutoJoinChannel(property.readProperty(CONFIG_FILE, "defaultChannel")) //set autoJoin channel(s)
-                .setMessageDelay(SnepsUtils.stringToInt(property.readProperty(CONFIG_FILE, "messageDelay")))
+                .setName(property.readProperty("botName")) //Set nick
+                .setLogin(property.readProperty("botName"))
+                .addServer(property.readProperty("serverHostname"), stringToInt(property.readProperty("serverPort"))) //set server hostname and port
+                .setNickservPassword(property.readProperty("NickServPassword")) //NickServ password
+                .addAutoJoinChannel(property.readProperty("defaultChannel")) //set autoJoin channel(s)
+                .setMessageDelay(stringToInt(property.readProperty("messageDelay")))
 
                 //ALL MY LOVELY LISTENERS
                 // Commands listeners

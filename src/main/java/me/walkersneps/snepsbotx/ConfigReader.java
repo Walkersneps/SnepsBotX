@@ -1,8 +1,10 @@
 package me.walkersneps.snepsbotx;
 
+import me.walkersneps.sneps.utils.property.PropertyReader;
 import me.walkersneps.snepsbotx.reference.CommandMap;
-import me.walkersneps.snepsbotx.utils.SnepsUtils;
+import me.walkersneps.sneps.utils.lazy.*;
 
+import static me.walkersneps.sneps.utils.convert.PrimitiveConverter.stringToChar;
 import static me.walkersneps.snepsbotx.SnepsBotX.CONFIG_FILE;
 
 public class ConfigReader {
@@ -21,74 +23,75 @@ public class ConfigReader {
     public static boolean canStalk = false;
     public static boolean canChat = false;
 
-    private static final SnepsUtils u = new SnepsUtils();
+    private static final Aliases u = new Aliases();
+    private static final PropertyReader property = new PropertyReader(CONFIG_FILE);
 
 
     static void initialize () {
 
-        u.print("");
-        u.print("Starting initialization routine!");
+        u.p("");
+        u.p("Starting initialization routine!");
 
         loadConfigs();
 
         loadCommandsHashmap();
 
-        u.print("Initialization routine completed!");
-        u.print("");
+        u.p("Initialization routine completed!");
+        u.p("");
 
     }
 
 
     private static void loadCommandsHashmap() {
 
-        u.print("Loading command hashmap...");
+        u.p("Loading command hashmap...");
         CommandMap.loadCommandsOnStartup(); //load the commands hashmap!
-        u.print("Loaded command hashmap!");
-        u.print("");
+        u.p("Loaded command hashmap!");
+        u.p("");
 
     }
 
     private static void loadConfigs() {
 
-        u.print("Starting reading configuration file NOW!");
+        u.p("Starting reading configuration file NOW!");
 
-        String serverHostname = u.readProperty(CONFIG_FILE, "serverHostname");
-        u.print("Read server hostname is: " + serverHostname + "!");
+        String serverHostname = property.readProperty("serverHostname");
+        u.p("Read server hostname is: " + serverHostname + "!");
 
-        masterUser = u.readProperty(CONFIG_FILE, "masterUser"); //read who is the masterUser
-        u.print("Read master user is: '" + masterUser + "'.");
+        masterUser = property.readProperty("masterUser"); //read who is the masterUser
+        u.p("Read master user is: '" + masterUser + "'.");
 
-        botVersion = u.readProperty(CONFIG_FILE, "botVersion");
-        u.print("Read bot version is: " + botVersion + ".");
+        botVersion = property.readProperty("botVersion");
+        u.p("Read bot version is: " + botVersion + ".");
 
-        defaultBotName = u.readProperty(CONFIG_FILE, "botName");
+        defaultBotName = property.readProperty("botName");
         actualBotName = defaultBotName;
-        u.print("Read bot name is: " + defaultBotName + ".");
+        u.p("Read bot name is: " + defaultBotName + ".");
 
-        consoleChannel = u.readProperty(CONFIG_FILE, "consoleChannel");
-        u.print("Read console channel is: #" + consoleChannel + ".");
+        consoleChannel = property.readProperty("consoleChannel");
+        u.p("Read console channel is: #" + consoleChannel + ".");
 
-        password = u.readProperty(CONFIG_FILE, "NickServPassword");
-        u.print("Read NickServ password (Psst: it's a secret!).");
+        password = property.readProperty("NickServPassword");
+        u.p("Read NickServ password (Psst: it's a secret!).");
 
-        prefix = u.stringToChar(u.readProperty(CONFIG_FILE, "prefix"));
-        u.print("Read prefix is: '" + prefix + "'.");
+        prefix = stringToChar(property.readProperty("prefix"));
+        u.p("Read prefix is: '" + prefix + "'.");
 
-        fmUser = u.readProperty(CONFIG_FILE, "lastfmUser");
-        fmKey = u.readProperty(CONFIG_FILE, "lastfmKey");
-        u.print("Read last.fm data are: user-> " + fmUser + "; key-> " + fmKey + ".");
+        fmUser = property.readProperty("lastfmUser");
+        fmKey = property.readProperty("lastfmKey");
+        u.p("Read last.fm data are: user-> " + fmUser + "; key-> " + fmKey + ".");
 
-        //waKey = u.readProperty(CONFIG_FILE, "wolframKey");
-        //u.print("Read Wolfram Alpha AppID is: " + waKey);
+        //waKey = u.readProperty("wolframKey");
+        //u.p("Read Wolfram Alpha AppID is: " + waKey);
 
 
-        canSpam = Boolean.parseBoolean(u.readProperty(CONFIG_FILE, "canSpam"));
-        canStalk = Boolean.parseBoolean(u.readProperty(CONFIG_FILE, "canStalk"));
-        canChat = Boolean.parseBoolean(u.readProperty(CONFIG_FILE, "canChat"));
-        u.print("Read toggles are (SPAM/STALK/DUMB): " + canSpam + "/" + canStalk + "/" + canChat + " .");
+        canSpam = Boolean.parseBoolean(property.readProperty("canSpam"));
+        canStalk = Boolean.parseBoolean(property.readProperty("canStalk"));
+        canChat = Boolean.parseBoolean(property.readProperty("canChat"));
+        u.p("Read toggles are (SPAM/STALK/DUMB): " + canSpam + "/" + canStalk + "/" + canChat + " .");
 
-        u.print("Done extracting variables from config file at " + CONFIG_FILE + "!");
-        u.print("");
+        u.p("Done extracting variables from config file at " + CONFIG_FILE + "!");
+        u.p("");
 
     }
 

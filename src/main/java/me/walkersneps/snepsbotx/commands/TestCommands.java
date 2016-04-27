@@ -1,7 +1,7 @@
 package me.walkersneps.snepsbotx.commands;
 
 
-import me.walkersneps.snepsbotx.utils.SnepsUtils;
+import me.walkersneps.sneps.utils.property.PropertyWriter;
 import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.types.GenericMessageEvent;
 
@@ -11,7 +11,7 @@ import static me.walkersneps.snepsbotx.SnepsBotX.CONFIG_FILE;
 
 public class TestCommands extends ListenerAdapter {
 
-    private final SnepsUtils utils = new SnepsUtils();
+    private final PropertyWriter utils = new PropertyWriter(CONFIG_FILE);
 
     @Override
     public void onGenericMessage (GenericMessageEvent e) {
@@ -32,7 +32,7 @@ public class TestCommands extends ListenerAdapter {
         if (e.getMessage().equalsIgnoreCase(prefix + "writetest")) {
             if (sender.equals(masterUser)) {
                 e.respond("Writing a " + CONFIG_FILE + "...");
-                utils.writeProperty(CONFIG_FILE, "test", "I'm a test");
+                utils.writeProperty("test", "I'm a test");
                 e.respond("Done!");
             } else { e.respond("Access denied!"); }
         }

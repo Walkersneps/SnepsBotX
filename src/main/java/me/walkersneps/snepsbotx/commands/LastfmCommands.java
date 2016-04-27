@@ -10,7 +10,7 @@ import static me.walkersneps.snepsbotx.ConfigReader.prefix;
 
 public class LastfmCommands extends ListenerAdapter{
 
-    private Lastfm fm = new Lastfm();
+    private final Lastfm fm = new Lastfm();
 
     @Override
     public void onGenericMessage(GenericMessageEvent e) throws Exception {
@@ -28,7 +28,7 @@ public class LastfmCommands extends ListenerAdapter{
             String album = latestScrobble[1];
             String artist = latestScrobble[2];
 
-            e.respondWith("Latest scrobble: " + song + " by " + artist + " in " + album + "."); //answer
+            e.respondWith("Latest " + fmUser + "'s " + "scrobble: '" + song + "' by " + artist + " in '" + album + "'."); //answer
 
         }
 
@@ -45,7 +45,7 @@ public class LastfmCommands extends ListenerAdapter{
             String album = latestScrobble[1];
             String artist = latestScrobble[2];
 
-            e.respondWith("Latest song scrobbled by " + user + ": " + song + " by " + artist + " in " + album + "."); //answer
+            e.respondWith("Latest song scrobbled by " + user + ": '" + song + "' by " + artist + " in '" + album + "'."); //answer
 
         }
 
@@ -62,7 +62,7 @@ public class LastfmCommands extends ListenerAdapter{
             String album = bestSong[1];
             String artist = bestSong[2];
 
-            e.respondWith(user + "'s favourite song is: " + song + " by " + artist + " in " + album + ".");
+            e.respondWith(user + "'s favourite song is: '" + song + "' by " + artist + " in '" + album + "'.");
 
         }
 

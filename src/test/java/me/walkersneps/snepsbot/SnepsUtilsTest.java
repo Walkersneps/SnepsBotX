@@ -2,7 +2,10 @@ package me.walkersneps.snepsbot;
 
 
 import junit.framework.TestCase;
-import me.walkersneps.snepsbotx.utils.SnepsUtils;
+
+import static me.walkersneps.sneps.utils.convert.PrimitiveConverter.intToString;
+import static me.walkersneps.sneps.utils.convert.PrimitiveConverter.stringToInt;
+import static me.walkersneps.sneps.utils.random.Randomizer.randomNumber;
 
 public class SnepsUtilsTest extends TestCase{
 
@@ -13,18 +16,18 @@ public class SnepsUtilsTest extends TestCase{
 
 
     public void testStringToInt () throws Exception {
-        assertEquals(1, SnepsUtils.stringToInt("1"));
-        assertEquals(325, SnepsUtils.stringToInt("325"));
+        assertEquals(1, stringToInt("1"));
+        assertEquals(325, stringToInt("325"));
     }
 
     public void testIntToString () throws Exception {
-        assertEquals("123", SnepsUtils.intToString(123));
-        assertEquals("9384", SnepsUtils.intToString(9384));
+        assertEquals("123", intToString(123));
+        assertEquals("9384", intToString(9384));
     }
 
     public void testRandomNumber () throws Exception {
-        assertEquals(0, SnepsUtils.randomNumber(1));
-        int r = SnepsUtils.randomNumber(4);
+        assertEquals(0, randomNumber(1));
+        int r = randomNumber(4);
         assertTrue(r == 0 | r == 1 | r == 2| r == 3);
     }
 
