@@ -5,5 +5,6 @@
 + Shell script to write configuration file
 + Youtube integration
 + URL Shortener
++ Telegram integration
 + ~~Continuos Integration~~
 + ~~.gitignore~~
