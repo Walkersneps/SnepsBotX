@@ -6,5 +6,5 @@
 + Youtube integration
 + URL Shortener
 + Telegram integration
-+ ~~Continuos Integration~~
-+ ~~.gitignore~~
++ ~~Continuos Integration~~ **DONE**
++ ~~.gitignore~~ **DONE**
