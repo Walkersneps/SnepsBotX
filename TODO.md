@@ -8,3 +8,5 @@
 + Telegram integration
 + ~~Continuos Integration~~ **DONE**
 + ~~.gitignore~~ **DONE**
++ 
+
